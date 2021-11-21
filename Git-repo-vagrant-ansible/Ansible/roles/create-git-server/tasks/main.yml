@@ -1,0 +1,21 @@
+---
+# tasks file for create-git-server
+- name: install dependencies
+  apt:
+    name: 
+      - git
+    state: present
+
+- name: git init --bare {{ project }} with the command module
+  command: git init --bare {{ project }}
+  args: 
+   chdir: "/home/{{ username }}"
+  
+- name: Set the permission on /home/{{ username }}/{{ project }}
+  file:
+    path: "/home/{{ username }}/{{ project }}"
+    state: directory
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    recurse: True

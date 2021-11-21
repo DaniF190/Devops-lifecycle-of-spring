@@ -1,0 +1,13 @@
+---
+
+- name: Create user
+  user:
+    name: "{{ username }}"
+    shell: /bin/bash
+    createhome: yes
+    append: yes
+
+- name: Set up authorized_keys for the user
+  authorized_key: user={{ username }} key="{{ item }}"
+  with_file:
+    - ~/.ssh/id_rsa.pub

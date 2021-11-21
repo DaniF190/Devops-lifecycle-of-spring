@@ -1,0 +1,5 @@
+[all]
+localhost
+
+[git-server]
+localhost username=git project=spring-boot-devops

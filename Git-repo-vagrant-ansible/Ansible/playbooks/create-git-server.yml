@@ -1,0 +1,5 @@
+- hosts: git-server
+  roles:
+    - create-user
+    - create-git-server
+  become: true
